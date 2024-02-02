@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/widgets/list_view_category_card.dart';
 import 'package:newsapp/widgets/news_list_view_builder.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -31,38 +32,22 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body:  const Padding(
+      body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-       child: CustomScrollView(
-         physics: BouncingScrollPhysics(),
-         slivers: [
-           SliverToBoxAdapter(child: ListViewCategoryCard()),
-        SliverToBoxAdapter(
-          child: SizedBox(
-                  height: 32,
-          ),
-         ),
-
-           NewsListViewBuilder(
-             category: 'general',
-           ) ,
-
-           // const SliverToBoxAdapter(
-           //   child: NewsListView(),
-           // )
-         ],
-       ),
-
-
-        // child: Column(
-        //   children: [
-        //     ListViewCategoryCard(),
-        //     SizedBox(
-        //       height: 32,
-        //     ),
-        //     Expanded(child: NewsListView()),
-        //   ],
-      //  ),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(child: ListViewCategoryCard()),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 32,
+              ),
+            ),
+            NewsListViewBuilder(
+              category: 'general',
+            ),
+          ],
+        ),
       ),
     );
   }
